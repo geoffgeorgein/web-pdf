@@ -6,6 +6,7 @@ import fs from "fs";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 import User from "./models/User.js";
+import mongoose from "mongoose";
 
 
 
@@ -19,6 +20,9 @@ const app=express();
 app.use(express.json({limit:"30mb",extended:true}));
 app.use(express.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
+
+
+mongoose.connect(process.env.CONNECTION_URL)
 
 const salt=bcrypt.genSaltSync(10);
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
