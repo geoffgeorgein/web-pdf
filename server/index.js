@@ -29,14 +29,18 @@ app.get('/',(req,res)=>{
 app.post('/file',upload.single('file'),(req,res)=>{
   console.log("file",req.file);
 
-  const {originalname,path}=req.file;
+  let {originalname,path}=req.file;
     const parts=originalname.split('.');
     const ext=parts[parts.length-1];
-    const newPath = path+'.'+ext;
 
+    let npath=path.split('\\');
+    npath[1]=parts[0];
+    
+    const newPath=npath[0]+'\\'+'1'+'.'+ext;
+    console.log("npath",newPath);
     console.log("body")
     fs.renameSync(path, newPath);
-  res.json('file uploaded')
+    res.json('file uploaded')
 })
 
 
