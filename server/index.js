@@ -1,9 +1,13 @@
 import express  from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import multer from "multer";
 import fs from "fs";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"
+import User from "./models/User.js";
+
+
 
 const upload = multer({ dest: 'uploads/' })
 
@@ -16,7 +20,8 @@ app.use(express.json({limit:"30mb",extended:true}));
 app.use(express.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
-
+const salt=bcrypt.genSaltSync(10);
+const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 
 
 const PORT = process.env.PORT || 5000;
@@ -42,6 +47,41 @@ app.post('/file',upload.single('file'),(req,res)=>{
     fs.renameSync(path, newPath);
     res.json('file uploaded')
 })
+
+app.post('/signup',async(req, res) => {
+  const {username,password}=req.body;
+    
+    const UserDoc=await User.create({
+        username,
+        password:bcrypt.hashSync(password,salt)
+    });
+    res.json(UserDoc);
+})
+
+app.post('/login',async(req, res)=>{
+    
+  const {username,password} = req.body;
+  const userDoc=await User.findOne({username});
+  console.log("User",username);
+
+  const passOK=bcrypt.compareSync(password,userDoc.password);
+  // res.json(passOK);
+
+  if(passOK){
+      jwt.sign({username,id:userDoc._id}, secret, {}, (err,token) => {
+          if (err) throw err;
+          res.cookie('token', token).json({
+            id:userDoc._id,
+            username,
+          });
+        });
+  }
+  else {
+      res.status(400).json("wrong credentials");
+    }
+
+}
+);
 
 
 
