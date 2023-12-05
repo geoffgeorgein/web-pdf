@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./homeContainer.scss";
 
 import { useNavigate } from "react-router-dom";
-import Navbar from "./navbar";
+
 
 const HomeContainer = () => {
   const [files, setFiles] = useState("");
@@ -19,11 +19,11 @@ const HomeContainer = () => {
 
     data.set("file", files[0]);
 
-    const values = [...data.entries()];
-    console.log("values", values);
+    // const values = [...data.entries()];
+  
     console.log("files", files);
     const arr = files[0].name.split(".");
-    console.log("arr", arr);
+  
     if (arr[1] !== "pdf") {
       console.log("NOT PDF format");
       alert("Upload new file");

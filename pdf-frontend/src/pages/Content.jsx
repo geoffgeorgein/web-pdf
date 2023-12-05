@@ -1,7 +1,5 @@
 import "./content.css";
 import { Document, Page, pdfjs } from "react-pdf";
-// import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import { StyleSheet } from '@react-pdf/renderer';
 import pdf from "../../../server/uploads/1.pdf";
 import { useState } from "react";
 import {useWindowSize} from '@react-hook/window-size'
@@ -13,14 +11,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 
-const styles = StyleSheet.create({
-  page: { backgroundColor: 'blue',
-  '@media width: 500': {
-    width: 400,
-  },
- },
-  section: { textAlign: 'center', margin: 30 }
-});
+
 
 const checkList = Array(200).fill(false);
 
@@ -94,7 +85,7 @@ const Content = () => {
                       pageNumber={page}
                       renderAnnotationLayer={false}
                       renderTextLayer={false}
-                      width={width>900?800:0.8*width}
+                      width={width>900?800:(width<400?400:0.8*width)}
                       
                     />
                   ) : (

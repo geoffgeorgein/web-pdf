@@ -6,14 +6,9 @@ import { UserContext } from "../UserContext";
 const Navbar = () => {
   const { setUserInfo, userInfo } = useContext(UserContext);
 
-  // console.log("userINfo",setUserInfo);
-  console.log("userContxo", UserContext);
 
   function logout() {
-    // fetch(local + "/logout", {
-    //   // credentials:'include',
-    //   method: "POST",
-    // });
+    
     localStorage.clear();
 
     setUserInfo(null);
@@ -23,7 +18,7 @@ const Navbar = () => {
   console.log("profilename", myObj);
 
   const username = userInfo?.username || myObj?.userInfo?.username;
-  console.log("USername1", username);
+ 
   return (
     <div className="navbar noprint" id="navbar">
       <div className="Navcontainer">
