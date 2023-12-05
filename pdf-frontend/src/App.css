@@ -1,0 +1,13 @@
+#root {
+  max-width: 1280px;
+  
+}
+
+.pdf-div{
+  padding: 50px;
+  background-color: #dedede;
+  margin-top: 50px;
+}
+.react-pdf__Page{
+  margin-bottom: 50px;
+}

@@ -1,0 +1,51 @@
+.content{
+    margin-top: 100px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.pdf-div{
+    margin-top: 60px;
+   
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn >button{
+    background-color: lightsteelblue;
+}
+
+
+
+@media (max-width: 600px){
+    .pdf-div{
+        padding: 20px;
+    }
+    .content{
+        padding: 0;
+    }
+}   
+
+/* .react-pdf__Page__canvas{
+    width: 90%;
+} */
+@media print {
+
+    .content{
+      margin-top: 0px;  
+      padding: 4px 10px;
+    }
+    .pdf-div{
+        background-color: white;
+    }
+    .noprint {
+        
+        display : none !important;
+    }
+ }
