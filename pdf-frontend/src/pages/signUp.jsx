@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './signup.css'
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/navbar";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -27,6 +28,8 @@ const SignUp = () => {
     }
   }
   return (
+    <>
+    <Navbar/>
     <div className="signup">
       <form onSubmit={register}>
         <h1>Sign Up</h1>
@@ -47,6 +50,7 @@ const SignUp = () => {
         <button>Sign Up</button>
       </form>
     </div>
+    </>
   );
 };
 

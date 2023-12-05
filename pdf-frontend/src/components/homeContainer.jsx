@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./homeContainer.scss";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./navbar";
 
 
 const HomeContainer = () => {
@@ -40,7 +41,7 @@ const HomeContainer = () => {
   return (
     <>
     
-    
+    <Navbar/>
     <div className="homeContainer">
       <h2>Upload your file</h2>
 

@@ -7,6 +7,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 import User from "./models/User.js";
 import mongoose from "mongoose";
+import cookieparser from "cookie-parser";
 
 
 
@@ -16,6 +17,7 @@ dotenv.config();
 
 
 const app=express();
+app.use(cookieparser())
 
 app.use(express.json({limit:"30mb",extended:true}));
 app.use(express.urlencoded({limit:"30mb",extended:true}));
@@ -76,6 +78,8 @@ app.post('/signup',async(req, res) => {
 app.post('/login',async(req, res)=>{
     
   const {username,password} = req.body;
+
+  try {
   const userDoc=await User.findOne({username});
   console.log("User",username);
 
@@ -95,8 +99,16 @@ app.post('/login',async(req, res)=>{
       res.status(400).json("wrong credentials");
     }
 
+  }
+
+  catch(error){
+    res.status(500).json("Something went worng...");
+  }
+
+
 }
 );
+
 
 
 

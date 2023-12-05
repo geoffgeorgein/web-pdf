@@ -3,6 +3,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import pdf from "../../../server/uploads/1.pdf";
 import { useState } from "react";
 import { useWindowSize } from "@react-hook/window-size";
+import Navbar from "../components/navbar";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -38,6 +39,7 @@ const Content = () => {
 
   return (
     <>
+    <Navbar/>
       <div className="content" id="content">
         <div className="btn noprint">
           <button onClick={save}>Save file</button>

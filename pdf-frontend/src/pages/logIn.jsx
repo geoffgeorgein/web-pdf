@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../UserContext";
 import { Navigate } from "react-router-dom";
 import './login.css'
+import Navbar from "../components/navbar";
 
 const LogIn = () => {
   const [username, setUsername] = useState("");
@@ -33,6 +34,8 @@ const LogIn = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="login">
       <form onSubmit={login}>
         <h1>Login</h1>
@@ -53,6 +56,7 @@ const LogIn = () => {
         <button>Login</button>
       </form>
     </div>
+    </>
   );
 };
 

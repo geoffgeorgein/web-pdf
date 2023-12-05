@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./navbar.scss";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserContext";
 
 const Navbar = () => {
   const { setUserInfo, userInfo } = useContext(UserContext);
   const [loggedIn,setLoggedIn] = useState(true)
+
+  
 
   function logout() {
     
@@ -15,7 +17,7 @@ const Navbar = () => {
   }
 
   const myObj = JSON.parse(localStorage.getItem("Profile"));
-  console.log("profilename", myObj);
+  // console.log("profilename", myObj);
 
   const username = userInfo?.username || myObj?.userInfo?.username;
  
