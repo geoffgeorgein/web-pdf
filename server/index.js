@@ -69,7 +69,7 @@ app.post('/login',async(req, res)=>{
   console.log("User",username);
 
   const passOK=bcrypt.compareSync(password,userDoc.password);
-  // res.json(passOK);
+
 
   if(passOK){
       jwt.sign({username,id:userDoc._id}, secret, {}, (err,token) => {
