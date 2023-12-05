@@ -22,8 +22,15 @@
     justify-content: center;
 }
 .btn >button{
-    background-color: lightsteelblue;
+    background-color: rgb(42, 170, 185);
+    color: white;
 }
+.btn >button:hover{
+    background-color: rgb(64, 197, 211);
+    outline: none;
+}
+
+
 
 
 

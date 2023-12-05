@@ -27,6 +27,7 @@ form > label{
 form >button{
     background-color: rgb(61, 122, 139);
     padding: 0.3em 1em;
+    color: white;
     
 }
 

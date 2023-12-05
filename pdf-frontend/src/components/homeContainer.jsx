@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./homeContainer.scss";
-
 import { useNavigate } from "react-router-dom";
 
 
