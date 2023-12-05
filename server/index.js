@@ -54,12 +54,23 @@ app.post('/file',upload.single('file'),(req,res)=>{
 
 app.post('/signup',async(req, res) => {
   const {username,password}=req.body;
+
+  try {
+    const existinguser = await User.findOne({ username });
+    if (existinguser) {
+      return res.status(511).json({ message: "User already Exist." });
+    }
+    console.log("sign-up")
     
     const UserDoc=await User.create({
         username,
         password:bcrypt.hashSync(password,salt)
     });
     res.json(UserDoc);
+  }
+  catch(error){
+    res.status(500).json("Something went worng...");
+  }
 })
 
 app.post('/login',async(req, res)=>{

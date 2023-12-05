@@ -17,3 +17,19 @@ Instructions for using locally
  * Pdf upload,edit,download
  * User authentication functionality
 
+## Examples
+* 1
+![img1](https://github.com/geoffgeorgein/web-pdf/blob/main/samples/fs1.png?raw=true)
+* 2
+
+![img2](https://github.com/geoffgeorgein/web-pdf/blob/main/samples/fs2.png?raw=true)
+* 3
+
+![img3](https://github.com/geoffgeorgein/web-pdf/blob/main/samples/fs3.png?raw=true)
+* 4
+
+![img4](https://github.com/geoffgeorgein/web-pdf/blob/main/samples/fs4.png?raw=true)
+* 5
+
+![img5](https://github.com/geoffgeorgein/web-pdf/blob/main/samples/fs5.png?raw=true)
+

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import './signup.css'
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate=useNavigate();
   async function register(ev) {
 
 
@@ -16,7 +17,12 @@ const SignUp = () => {
     });
     if (response.status === 200) {
       alert("registration successful");
-    } else {
+      navigate('/login')
+    }
+    else if(response.status === 511){
+      alert("User already exists");
+    }
+     else {
       alert("registration failed");
     }
   }
