@@ -9,7 +9,7 @@ import User from "./models/User.js";
 import mongoose from "mongoose";
 import cookieparser from "cookie-parser";
 
-
+// dev
 
 const upload = multer({ dest: 'uploads/' })
 
@@ -55,7 +55,7 @@ app.post('/file',upload.single('file'),(req,res)=>{
 })
 
 app.post('/signup',async(req, res) => {
-  const {username,password}=req.body;
+  const {username,password}=req.body;p
 
   try {
     const existinguser = await User.findOne({ username });
