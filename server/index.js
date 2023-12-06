@@ -55,7 +55,7 @@ app.post('/file',upload.single('file'),(req,res)=>{
 })
 
 app.post('/signup',async(req, res) => {
-  const {username,password}=req.body;p
+  const {username,password}=req.body;
 
   try {
     const existinguser = await User.findOne({ username });
