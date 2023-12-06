@@ -5,6 +5,7 @@ Live link: https://web-pdf-one.vercel.app/
 
 #### Instructions for using locally
 
+* Switch to main branch
 * Clone this repository
 * For frontend
   * In root directory of terminal run `cd pdf-frontend`
@@ -14,6 +15,7 @@ Live link: https://web-pdf-one.vercel.app/
   * In root directory run `cd server`
   * Run `npm install`
   * Run `node index.js`
+  * The server will be hosted on `http://localhost:5000`
  
  ## Features provided
  * Pdf upload,edit,download
