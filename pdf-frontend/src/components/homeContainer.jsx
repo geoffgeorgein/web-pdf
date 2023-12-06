@@ -11,6 +11,7 @@ const HomeContainer = () => {
   const navigate = useNavigate();
 
   const local = "http://localhost:5000";
+  const server="https://pdf-server-hsv9.onrender.com";
 
   async function Post(ev) {
     ev.preventDefault();
@@ -28,7 +29,7 @@ const HomeContainer = () => {
       console.log("NOT PDF format");
       alert("Upload new file");
     } else {
-      const response = await fetch(local + "/file", {
+      const response = await fetch(server + "/file", {
         method: "POST",
         body: data,
       });
