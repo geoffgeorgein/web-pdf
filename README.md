@@ -16,6 +16,7 @@ Instructions for using locally
  ## Features provided
  * Pdf upload,edit,download
  * User authentication functionality
+ * Responsive Design
 
 ## Examples
 * 1

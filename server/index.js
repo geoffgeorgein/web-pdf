@@ -23,7 +23,7 @@ app.use(express.json({limit:"30mb",extended:true}));
 app.use(express.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
-
+// Connecting to DataBase
 mongoose.connect(process.env.CONNECTION_URL)
 
 const salt=bcrypt.genSaltSync(10);
@@ -49,7 +49,7 @@ app.post('/file',upload.single('file'),(req,res)=>{
     
     const newPath=npath[0]+'\\'+'1'+'.'+ext;
     console.log("npath",newPath);
-    console.log("body")
+    
     fs.renameSync(path, newPath);
     res.json('file uploaded')
 })
